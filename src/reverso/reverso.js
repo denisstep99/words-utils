@@ -47,9 +47,7 @@ async function makeWordRequest(word) {
 
 
 async function parseResponse(response) {
-  const responseBody = response.data;
-  const $ = cheerio.load(responseBody);
-
+  const $ = cheerio.load(response.data);
   const examples = $('#examples-content .example');
   return parseExamples($, examples);
 }
